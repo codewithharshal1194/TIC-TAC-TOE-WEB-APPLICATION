@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vintage AI Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Tic-Tac-Toe <span></span></h1>
+    <div class="mode-select">
+      <button onclick="setMode('player')">👥 2 Players</button>
+      <button onclick="setMode('ai')">🤖 Vs Computer</button>
+    </div>
+    <div id="board" class="board"></div>
+    <p id="status" class="status">Choose a mode to begin.</p>
+    <button id="restartBtn" class="restart" onclick="restartGame()">🔄 Restart</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
