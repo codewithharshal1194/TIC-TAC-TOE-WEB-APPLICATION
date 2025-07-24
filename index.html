@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vintage AI Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-robot"></i> TIC-TAC-TOE <i class="fas fa-user"></i></h1>
+      <div class="difficulty-select">
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium" selected>Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="mode-select">
+      <button class="mode-btn active" data-mode="player">
+        <i class="fas fa-users"></i> 2 Players
+      </button>
+      <button class="mode-btn" data-mode="ai">
+        <i class="fas fa-robot"></i> Vs AI
+      </button>
+    </div>
+    
+    <div class="game-info">
+      <div class="scoreboard">
+        <div class="score" id="playerX">X: 0</div>
+        <div class="score" id="ties">Ties: 0</div>
+        <div class="score" id="playerO">O: 0</div>
+      </div>
+      <p id="status" class="status">Choose a mode to begin</p>
+    </div>
+    
+    <div id="board" class="board"></div>
+    
+    <div class="controls">
+      <button id="restartBtn" class="restart">
+        <i class="fas fa-redo"></i> Restart
+      </button>
+    </div>
+  </div>
+  
+  <div class="modal" id="winModal">
+    <div class="modal-content">
+      <h2 id="winMessage">X Wins!</h2>
+      <button id="playAgainBtn">Play Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

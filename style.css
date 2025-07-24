@@ -1,0 +1,265 @@
+:root {
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --dark: #292f36;
+  --light: #f7fff7;
+  --accent: #ffd166;
+  --wood: #7b5e45;
+}
+
+body {
+  background: radial-gradient(circle, #f5f7fa, #c3cfe2);
+  font-family: 'VT323', monospace;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+}
+
+.container {
+  background: var(--light);
+  border: 8px solid var(--wood);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px;
+  width: 95%;
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.header {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+  color: var(--dark);
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+}
+
+h1 i {
+  margin: 0 10px;
+  color: var(--primary);
+}
+
+h1 i:last-child {
+  color: var(--secondary);
+}
+
+.difficulty-select {
+  margin: 1rem 0;
+}
+
+.difficulty-select select {
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 2px solid var(--wood);
+  background: var(--light);
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.mode-select {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mode-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #e0e0e0;
+}
+
+.mode-btn.active {
+  background: var(--wood);
+  color: white;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.mode-btn i {
+  font-size: 1.2rem;
+}
+
+.game-info {
+  margin-bottom: 1.5rem;
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+  background: rgba(0,0,0,0.05);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.score {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+#playerX {
+  color: var(--primary);
+}
+
+#playerO {
+  color: var(--secondary);
+}
+
+.status {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--dark);
+  font-style: italic;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 0 auto 2rem;
+  max-width: 300px;
+}
+
+.cell {
+  aspect-ratio: 1;
+  background: white;
+  border: 3px solid var(--wood);
+  border-radius: 10px;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.cell:hover {
+  transform: scale(1.03);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cell[data-player="X"] {
+  color: var(--primary);
+}
+
+.cell[data-player="O"] {
+  color: var(--secondary);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+}
+
+.restart {
+  padding: 10px 25px;
+  background: var(--wood);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.restart:hover {
+  background: #614935;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: popIn 0.4s;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-family: 'Press Start 2P', cursive;
+}
+
+#playAgainBtn {
+  padding: 10px 25px;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#playAgainBtn:hover {
+  background: #3aa89d;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .cell {
+    font-size: 2.5rem;
+  }
+}
